@@ -9,6 +9,7 @@ public class DiceScript : MonoBehaviour
     
     void Start()
     {
+        DiceCanvas.diceNumber = 0;
         rb = GetComponent<Rigidbody> ();
     }
 
@@ -18,10 +19,9 @@ public class DiceScript : MonoBehaviour
 
         if(Input.GetKeyDown (KeyCode.Space)){
 
-            DiceCanvas.diceNumber = 0;
-            float dirX = Random.Range (0, 500);
-            float dirY = Random.Range (0, 500);
-            float dirZ = Random.Range (0, 500);
+            float dirX = Random.Range (-500, 500);
+            float dirY = Random.Range (-500, 500);
+            float dirZ = Random.Range (-500, 500);
             rb.AddTorque(dirX,dirY,dirZ);
 
             rb.AddForce(transform.up * 500);
