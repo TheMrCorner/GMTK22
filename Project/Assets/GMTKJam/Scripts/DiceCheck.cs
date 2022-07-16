@@ -4,36 +4,34 @@ using UnityEngine;
 
 public class DiceCheck : MonoBehaviour
 {
-    Vector3 Velocity;
-    public RigidBody Dice;
-    public int diceNumber;
+    Vector3 diceVel;
 
     void FixedUpdate(){
-        Velocity = Dice.Velocity; 
+        diceVel = DiceScript.diceVelocity; 
     }
 
     void OnTriggerStay(Collider col){
 
-        if(Velocity == Vector3(0,0,0)){
+        if (diceVel == new Vector3 (0f, 0f, 0f)){
 
         switch (col.gameObject.name){
-            case "Side1"
-                diceNumber = 1;
+            case "Side1":
+                DiceCanvas.diceNumber = 1;
                 break;
-            case "Side2"
-                diceNumber = 2;
+            case "Side2":
+                DiceCanvas.diceNumber = 2;
                 break;
-            case "Side3"
-                diceNumber = 3;
+            case "Side3":
+                DiceCanvas.diceNumber = 3;
                 break;
-            case "Side4"
-                diceNumber = 4;
+            case "Side4":
+                DiceCanvas.diceNumber = 4;
                 break;
-            case "Side5"
-                diceNumber = 5;
+            case "Side5":
+                DiceCanvas.diceNumber = 5;
                 break;
-            case "Side6"
-                diceNumber = 6;
+            case "Side6":
+                DiceCanvas.diceNumber = 6;
                 break;
             }
         }
